@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zylos</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="index.html" class="logo-link">
+                <h1 class="title">Zylos</h1>
+            </a>
+        </div>
+        
+        <button class="hamburger" aria-label="Abrir menú">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="content-container">
+        <h1 class="tracking-in-expand">We are a startup focused on the development of military UAV drones</h1>
+        
+        <div class="logos-section">
+            <div class="logos-wrapper">
+                <div class="logos-track">
+                    <div class="logo-item"><span class="logo-icon">▲</span> NEXUS CYBER</div>
+                    <div class="logo-item"><span class="logo-icon">◆</span> VANGUARD AERO</div>
+                    <div class="logo-item"><span class="logo-icon">⬢</span> TITAN DEFENSE</div>
+                    <div class="logo-item"><span class="logo-icon">▼</span> AEGIS SYSTEMS</div>
+                    <div class="logo-item"><span class="logo-icon">◀</span> NOVA ROBOTICS</div>
+                    <div class="logo-item"><span class="logo-icon">✖</span> KRONOS LABS</div>
+
+                    <div class="logo-item"><span class="logo-icon">▲</span> NEXUS CYBER</div>
+                    <div class="logo-item"><span class="logo-icon">◆</span> VANGUARD AERO</div>
+                    <div class="logo-item"><span class="logo-icon">⬢</span> TITAN DEFENSE</div>
+                    <div class="logo-item"><span class="logo-icon">▼</span> AEGIS SYSTEMS</div>
+                    <div class="logo-item"><span class="logo-icon">◀</span> NOVA ROBOTICS</div>
+                    <div class="logo-item"><span class="logo-icon">✖</span> KRONOS LABS</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>Defining the Next Era of Aerial Defense</h2>
+                <p>At Zylos, we design and manufacture next-generation autonomous tactical UAVs engineered for high-stakes defense and reconnaissance operations. Born from the intersection of advanced aerospace engineering and tactical artificial intelligence.</p>
+                <p>Our drones are sophisticated, self-contained tactical assets capable of real-time threat evaluation and flawless execution under electronic warfare conditions.</p>
+            </div>
+            <div class="about-image">
+                <img src="/media/drone.jpeg" alt="Zylos UAV Tactical Drone">
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products-section">
+        <h2 class="products-title">Tactical Fleet</h2>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="card-badge">Reconnaissance</div>
+                <h3 class="card-model">C-33</h3>
+                <p class="card-description">Stealth-penetrating UAV designed for deep reconnaissance in contested airspace. Equipped with ultra-quiet electric propulsion and advanced optical/thermal sensors.</p>
+                <ul class="card-specs">
+                    <li><strong>Autonomy:</strong> 14 hrs</li>
+                    <li><strong>Range:</strong> 450 km</li>
+                    <li><strong>Service Ceiling:</strong> 8,000 m</li>
+                </ul>
+            </div>
+
+            <div class="product-card">
+                <div class="card-badge">Tactical Strike</div>
+                <h3 class="card-model">ALPHA 42</h3>
+                <p class="card-description">Highly agile tactical strike platform. Designed for rapid interception and deployment of precision-guided munitions assisted by autonomous AI.</p>
+                <ul class="card-specs">
+                    <li><strong>Autonomy:</strong> 8 hrs</li>
+                    <li><strong>Range:</strong> 600 km</li>
+                    <li><strong>Max Speed:</strong> 320 km/h</li>
+                </ul>
+            </div>
+
+            <div class="product-card">
+                <div class="card-badge">Heavy Payload</div>
+                <h3 class="card-model">M-82</h3>
+                <p class="card-description">Heavy logistics and electronic warfare. Capable of transporting critical supplies or signal interference modules under extreme weather conditions and severe EW environments.</p>
+                <ul class="card-specs">
+                    <li><strong>Autonomy:</strong> 12 hrs</li>
+                    <li><strong>Payload:</strong> 120 kg</li>
+                    <li><strong>Systems:</strong> EW Jammer</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+     <section id="contact" class="contact-section">
+    <div class="contact-container">
+        <h2 class="contact-title">Contact</h2>
+        <p class="contact-subtitle">Iniciá comunicación para especificaciones tácticas y soporte.</p>
+        
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" required placeholder="Ej: Alfa Uno">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="nombre@agencia.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Mensaje</label>
+                <textarea id="message" rows="5" required placeholder="Escribí tu mensaje aquí..."></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Enviar Mensaje</button>
+        </form>
+    </div>
+</section>
+
+    <video class="video-fondo" preload="auto" autoplay loop muted playsinline>
+        <source src="/media/video.mp4" type="video/mp4">
+        Tu navegador no soporta videos.
+    </video>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

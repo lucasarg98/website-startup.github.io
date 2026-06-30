@@ -1,0 +1,529 @@
+/* --- 1. ESTILOS GENERALES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* --- ALINEACIÓN PERFECTA DEL LOGO Y LINKS --- */
+.title {
+    margin: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* --- 2. VIDEO DE FONDO --- */
+.video-fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;     
+    height: 100vh; 
+    object-fit: cover;
+    z-index: -1; 
+}
+
+/* --- 3. NAVBAR RESPONSIVE --- */
+/* --- 3. NAVBAR RESPONSIVE --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 5%;
+    background-color: transparent;
+    z-index: 1000;
+    /* Línea sutil transparente inicialmente para la transición */
+    border-bottom: 1px solid transparent; 
+    will-change: background-color, backdrop-filter;
+}
+
+.logo-link, .title, .nav-links a {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo-link {
+    display: inline-block;
+}
+
+.nav-brand {
+    font-family: "Major Mono Display", monospace;
+    font-weight: bolder;
+    font-size: clamp(1.2rem, 2.5vw, 1.7rem); 
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    font-family: "Arial", sans-serif;
+    list-style: none;
+    gap: 2rem; 
+    align-items: center;
+}
+
+.nav-links a {
+    display: inline-block;
+    position: relative;
+    font-size: clamp(1.1rem, 2vw, 1.5rem); 
+    font-weight: 400;
+    padding-bottom: 4px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+/* --- 4. BOTÓN HAMBURGUESA --- */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    gap: 5px;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #000000;
+    transition: all 0.3s ease;
+}
+
+/* --- 5. CONTENEDOR HERO (INICIO) --- */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    padding: 90px 10% 140px; /* Padding extra abajo para reservar espacio al carrusel absolute */
+    position: relative;       /* Contenedor padre de referencia */
+}
+
+.tracking-in-expand {
+    font-weight: bold;
+    font-size: clamp(1.6rem, 4vw, 3.5rem); 
+    text-transform: uppercase;
+    letter-spacing: clamp(0.1em, 0.8vw, 0.3em); 
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+    color: #000000;
+    transform: translateY(-40px); /* Ajustado un poco hacia arriba para balance visual */
+}
+
+/* --- 6. CARRUSEL DE LOGOS (MODIFICADO A POSICIÓN FIJA RESPONSIVA) --- */
+.logos-section {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    padding: 1.5rem 0;
+    overflow: hidden; 
+    position: absolute; /* Extraído del flujo normal del texto */
+    bottom: 3.5rem;     /* Posición fija en la base de la pantalla de bienvenida */
+    left: 0;
+    z-index: 5;
+}
+
+.logos-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.logos-track {
+    display: flex;
+    gap: 5rem;
+    white-space: nowrap;
+    will-change: transform;
+}
+
+.logo-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: "Major Mono Display", monospace;
+    font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+    font-weight: bold;
+    color: #000000;
+    letter-spacing: 0.15em;
+    opacity: 0.7;
+    user-select: none;
+}
+
+/* --- 7. SECCIÓN ABOUT US --- */
+.about-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 10%;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.about-content {
+    max-width: 100%;
+    text-align: left;
+    color: #000000;
+}
+
+.about-content h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-family: "Major Mono Display", monospace;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.1em;
+}
+
+.about-content p {
+    font-size: clamp(1rem, 1.6vw, 1.3rem);
+    font-family: "Arial", sans-serif;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.about-image {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+    opacity: 0;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- 8. SECCIÓN PRODUCTS (CON PROPIEDADES HOUDINI) --- */
+@property --s-start-0 { syntax: '<percentage>'; inherits: false; initial-value: 9%; }
+@property --s-end-0 { syntax: '<percentage>'; inherits: false; initial-value: 55%; }
+@property --c-0 { syntax: '<color>'; inherits: false; initial-value: hsla(266, 1%, 12%, 1); }
+@property --x-0 { syntax: '<percentage>'; inherits: false; initial-value: 85%; }
+@property --y-0 { syntax: '<percentage>'; inherits: false; initial-value: 80%; }
+
+@property --s-start-1 { syntax: '<percentage>'; inherits: false; initial-value: 5%; }
+@property --s-end-1 { syntax: '<percentage>'; inherits: false; initial-value: 72%; }
+@property --c-1 { syntax: '<color>'; inherits: false; initial-value: hsla(335, 2%, 22%, 1); }
+@property --x-1 { syntax: '<percentage>'; inherits: false; initial-value: 60%; }
+@property --y-1 { syntax: '<percentage>'; inherits: false; initial-value: 24%; }
+
+@property --s-start-2 { syntax: '<percentage>'; inherits: false; initial-value: 5%; }
+@property --s-end-2 { syntax: '<percentage>'; inherits: false; initial-value: 52%; }
+@property --c-2 { syntax: '<color>'; inherits: false; initial-value: hsla(53, 0%, 0%, 0.49); }
+@property --x-2 { syntax: '<percentage>'; inherits: false; initial-value: 13%; }
+@property --y-2 { syntax: '<percentage>'; inherits: false; initial-value: 82%; }
+
+@property --x-3 { syntax: '<percentage>'; inherits: false; initial-value: 24%; }
+@property --y-3 { syntax: '<percentage>'; inherits: false; initial-value: 7%; }
+@property --s-start-3 { syntax: '<percentage>'; inherits: false; initial-value: 13%; }
+@property --s-end-3 { syntax: '<percentage>'; inherits: false; initial-value: 68%; }
+@property --c-3 { syntax: '<color>'; inherits: false; initial-value: hsla(299, 4%, 36%, 1); }
+
+.products-section {
+    position: relative; /* Necesario para anclar el difuminado superior */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 10%;
+    
+    --c-0: hsla(266, 1%, 12%, 1); --x-0: 85%; --y-0: 80%;
+    --c-1: hsla(335, 2%, 22%, 1); --x-1: 60%; --y-1: 24%;
+    --c-2: hsla(53, 0%, 0%, 0.49); --x-2: 13%; --y-2: 82%;
+    --x-3: 24%; --y-3: 7%; --c-3: hsla(299, 4%, 36%, 1);
+    
+    background-color: hsla(0, 0%, 0%, 1);
+    background-image: 
+        radial-gradient(circle at var(--x-0) var(--y-0), var(--c-0) var(--s-start-0), transparent var(--s-end-0)), 
+        radial-gradient(circle at var(--x-1) var(--y-1), var(--c-1) var(--s-start-1), transparent var(--s-end-1)), 
+        radial-gradient(circle at var(--x-2) var(--y-2), var(--c-2) var(--s-start-2), transparent var(--s-end-2)), 
+        radial-gradient(circle at var(--x-3) var(--y-3), var(--c-3) var(--s-start-3), transparent var(--s-end-3));
+    background-blend-mode: normal, normal, normal, normal;
+    
+    will-change: transform, opacity;
+    contain: paint;
+}
+
+/* Máscara de degradado que difumina el final del video con el inicio de productos */
+.products-section::before {
+    content: '';
+    position: absolute;
+    top: -150px; /* Se extiende hacia arriba invadiendo la sección del video */
+    left: 0;
+    width: 100%;
+    height: 151px;
+    background: linear-gradient(to bottom, transparent, hsla(0, 0%, 0%, 1));
+    pointer-events: none; /* Evita que bloquee clicks molestos */
+    z-index: 2;
+}
+
+.products-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: "Major Mono Display", monospace;
+    color: #ffffff;
+    margin-bottom: 4rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.product-card {
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde inicial claro */
+    border-radius: 4px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(40px);
+    
+    /* TRANSICIÓN SUAVE: Asegura que el borde y el movimiento cambien con fluidez */
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* EFECTO HOVER AL POSAR EL MOUSE */
+.product-card:hover {
+    border-color: #000000;              /* El borde se vuelve negro nítido */
+    transform: translateY(-5px);         /* La tarjeta se eleva sutilmente */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5); /* La sombra se intensifica al elevarse */
+}
+
+.card-badge {
+    align-self: flex-start;
+    font-family: "Arial", sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 4px 10px;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.card-model {
+    font-family: "Major Mono Display", monospace;
+    font-size: 2rem;
+    color: #000000;
+    margin-bottom: 1rem;
+}
+
+.card-description {
+    font-family: "Arial", sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #222222;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.card-specs {
+    list-style: none;
+    font-family: "Arial", sans-serif;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    padding-top: 1rem;
+    color: #000000;
+}
+
+.card-specs li {
+    margin-bottom: 0.5rem;
+}
+
+/* --- 10. MEDIA QUERIES RESPONSIVAS --- */
+@media (max-width: 992px) {
+    .about-container { grid-template-columns: 1fr; gap: 3rem; }
+    .about-content { text-align: center; }
+}
+
+@media (max-width: 768px) {
+    .logos-track { gap: 3rem; }
+    .logos-section { bottom: 2rem; } /* Reajuste milimétrico para mobile */
+    .hamburger { display: flex; }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.95);
+        gap: 0;
+        text-align: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active { max-height: 300px; }
+    .nav-links li { padding: 1.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .nav-links a { font-size: 1.1rem; }
+}
+
+/* --- 6. SECCIÓN CONTACTO (DOT GRID BACKGROUND) --- */
+.contact-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 5%;
+    overflow: hidden;
+}
+
+/* Aquí aplicamos tu fondo exacto de manera aislada */
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.8;
+    background-image: radial-gradient(#6e6e6e 1px, #000000 1px);
+    background-size: 10px 10px;
+    z-index: 1;
+}
+
+/* Contenedor del formulario (se eleva por encima del fondo) */
+.contact-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 600px;
+    background: rgba(15, 15, 15, 0.85); /* Fondo oscuro traslúcido para los inputs */
+    padding: 3rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+.contact-title {
+    font-size: 2.5rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.contact-subtitle {
+    color: #888888;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+}
+
+/* Elementos del Formulario */
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: #ffffff;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: 1rem;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animación de foco en los inputs */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Botón de envío industrial/minimalista */
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
